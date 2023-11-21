@@ -28,6 +28,9 @@ if location:
         st.plotly_chart(weather_chart)
 
     if option == "Sky":
-        filtered_data = [dict["weather"][0]["main"] for dict in filtered_data]
-        st.image()
+        images = {"Clear": "images/clear.png", "Clouds": "images/cloud.png",
+                  "Rain": "images/rain.png", "Snow": "images/snow.png"}
+        sky_condition = [dict["weather"][0]["main"] for dict in filtered_data]
+        image_paths = [images[item] for item in sky_condition]
+        st.image(image_paths, width=125)
 
