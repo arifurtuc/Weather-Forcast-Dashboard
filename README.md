@@ -6,7 +6,7 @@ This app fetches weather forecasts for a specific location and displays temperat
 1. Clone the repository.
 2. Install the required packages using `pip install -r requirements.txt`.
 3. Obtain an API key from OpenWeatherMap and save it in a `.env` file as `API_KEY=your_api_key`.
-4. Run the app using `streamlit run app.py`.
+4. Run the app using `streamlit run main.py`.
 
 ## Usage
 1. Enter the desired location in the provided input field.
