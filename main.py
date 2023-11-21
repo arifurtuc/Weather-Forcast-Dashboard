@@ -1,5 +1,6 @@
 import streamlit as st
 import plotly.express as px
+from function import generate_weather_data
 
 # Streamlit app title and input widgets
 st.title("Weather Forecast for Upcoming Days")
@@ -12,16 +13,12 @@ option = st.selectbox("Select data to view", ("Temperature", "Sky"))
 st.subheader(f"{option} for the next {forecast_duration} days in {location}")
 
 
-def generate_weather_data(days):
-    # Dummy weather data for demonstration purposes
-    dates = ["2023-25-10", "2023-26-10", "2023-27-10"]
-    temperatures = [10, 11, 15]
-    temperatures = [days * temp for temp in temperatures]
-    return dates, temperatures
-
-
-# Generate weather data for plotting
-forecast_dates, forecast_temperatures = generate_weather_data(forecast_duration)
+# Fetch weather data for plotting
+forecast_dates, forecast_temperatures = generate_weather_data(
+    location,
+    forecast_duration,
+    option
+)
 
 # Create a Plotly line chart based on the selected data
 weather_chart = px.line(x=forecast_dates,
