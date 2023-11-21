@@ -7,7 +7,7 @@ load_dotenv()
 api_key = os.getenv("API_KEY")
 
 
-def generate_weather_data(place, forecast_days, kind):
+def generate_weather_data(place, forecast_days):
     """
     Fetches weather data based on the provided parameters.
 
@@ -23,8 +23,4 @@ def generate_weather_data(place, forecast_days, kind):
     data = response.json()
     filtered_data = data["list"]
     filtered_data = filtered_data[:8 * forecast_days]
-    if kind == "Temperature":
-        filtered_data = [dict["main"]["temp"] for dict in filtered_data]
-    if kind == "Sky":
-        filtered_data = [dict["weather"][0]["main"] for dict in filtered_data]
     return filtered_data
